@@ -1,6 +1,6 @@
-let myNodeList = document.getElementsByTagName('li');
+let myNodeList = document.getElementsByTagName('LI');
 for (let i = 0; i < myNodeList.length; i++) {
-    let span = document.createElement('span');
+    let span = document.createElement('SPAN');
     let text = document.createTextNode("\u00D7");
     span.className ="close";
     span.appendChild(text);
@@ -17,8 +17,33 @@ for (let i = 0; i < myNodeList.length; i++) {
 
 let list = document.querySelector('ul');
 list.addEventListener('click', function(event) {
-    if(event.target.tagName ==='li'){
+    if(event.target.tagName ==='LI'){
         event.target.classList.toggle('checked');
     }
 }, false);
+
+function addNewTask(){
+    let li = document.createElement('li');
+    let inputText = document.getElementById('myInput').value;
+    let t = document.createTextNode(inputText);
+    li.appendChild(t);
+    if(inputText === ''){
+        alert('Cannot add empty task')
+    }else{
+        document.getElementById('taskList').appendChild(li);
+    }
+    document.getElementById('myInput').value = '';
+
+    let span = document.createElement('SPAN');
+    let text = document.createTextNode('\u00D7');
+    span.className = 'close';
+    span.appendChild(text);
+    li.appendChild(span);
+
+    for(let i =0; i < close.length; i++){
+        close[i].onclick = function(){
+            this.parentElement.style.display = 'none';
+        }
+    }
+}
 
